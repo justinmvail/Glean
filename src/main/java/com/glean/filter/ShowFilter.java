@@ -29,7 +29,7 @@ public class ShowFilter {
             Iterator<Episode> episodeIterator = episodes.iterator();
             while(episodeIterator.hasNext()){
                 Episode episode = episodeIterator.next();
-                List<Source> sources = episode.getAllSources();//Because the getAllSources method creates a new arrayList, we don't actually delete the episodes sources
+                List<Source> sources = episode.getAllSources();//Because the getAllSources method creates a new arrayList, we don't actually delete the episode's sources
                 Iterator<Source> sourceIterator = sources.iterator();
                 while(sourceIterator.hasNext()){
                     Source source = sourceIterator.next();

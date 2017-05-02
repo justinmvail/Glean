@@ -6,6 +6,7 @@ import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.mongodb.MongoClient;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeanUtils;
@@ -59,6 +60,7 @@ public class UserProfileSetup {
     @Value("${database.collection.userProfile}")
     String userProfileCollection;
 
+    @Ignore
     @Test
     public void createTestDataUserProfilesByScrapingGuideBox() throws IOException {
 

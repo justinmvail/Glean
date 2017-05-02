@@ -3,6 +3,7 @@ package com.glean.databaseDataSetup;
 import com.glean.repository.MovieRepo;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.mongodb.MongoClient;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class MovieSetup {
     @Value("${movieid.module.elementToSearch}")
     private String[] movieIds;
 
+    @Ignore
     @Test
     public void createTestDataMoviesByScrapingGuideBox() throws IOException {
 

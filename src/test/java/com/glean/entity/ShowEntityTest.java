@@ -23,7 +23,6 @@ public class ShowEntityTest {
     @Autowired
     private ShowRepo showRepo;
 
-
     @Test
     public void getShowFromDBTest() throws Exception {
         long startingTime = System.currentTimeMillis() % 1000;
