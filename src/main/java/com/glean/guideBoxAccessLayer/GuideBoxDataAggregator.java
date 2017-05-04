@@ -57,8 +57,14 @@ public class GuideBoxDataAggregator {
     }
 
     public List<UserStreamSource> fetchAndAssembleFreeSources() throws IOException {
-        List<String> sources = new ArrayList<String>();
+        List<String> sources = new ArrayList<>();
         sources.add("free");
+        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class).getResults();
+    }
+
+    public List<UserStreamSource> fetchAndAssembleSubscriptionSources() throws IOException {
+        List<String> sources = new ArrayList<>();
+        sources.add("subscription");
         return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class).getResults();
     }
 

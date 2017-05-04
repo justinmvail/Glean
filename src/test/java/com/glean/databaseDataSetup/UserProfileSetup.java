@@ -5,6 +5,7 @@ import com.glean.repository.MovieRepo;
 import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
+import com.glean.repository.UserStreamSourceRepo;
 import com.mongodb.MongoClient;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,6 +41,9 @@ public class UserProfileSetup {
     private GuideBoxDataAggregator guideBoxDataAggregator;
 
     @Autowired
+    private UserStreamSourceRepo userStreamSourceRepo;
+
+    @Autowired
     private ShowRepo showRepo;
 
     @Autowired
@@ -47,6 +51,9 @@ public class UserProfileSetup {
 
     @Autowired
     private UserProfileRepo userProfileRepo;
+
+    @Autowired
+    private StreamSource streamSource;
 
     @Value("${showid.module.elementToSearch}")
     private String[] showIds;
@@ -67,7 +74,7 @@ public class UserProfileSetup {
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
         mongoTemplate.remove(new Query(), userProfileCollection);
 
-        List<UserStreamSource> freeStreamingSources = guideBoxDataAggregator.fetchAndAssembleFreeSources();
+        List<UserStreamSource> freeStreamingSources = userStreamSourceRepo.findAll();
 
         for(String userName : userNames) {
             UserProfile userProfile = new UserProfile();
