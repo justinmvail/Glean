@@ -1,7 +1,6 @@
 package com.glean.controller;
 
 import com.glean.entities.Show;
-import com.glean.entities.UserProfile;
 import com.glean.filter.ShowFilter;
 import com.glean.repository.ShowRepo;
 import org.springframework.beans.factory.annotation.Autowired;
