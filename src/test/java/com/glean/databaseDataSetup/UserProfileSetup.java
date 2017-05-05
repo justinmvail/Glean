@@ -52,9 +52,6 @@ public class UserProfileSetup {
     @Autowired
     private UserProfileRepo userProfileRepo;
 
-    @Autowired
-    private StreamSource streamSource;
-
     @Value("${showid.module.elementToSearch}")
     private String[] showIds;
 
