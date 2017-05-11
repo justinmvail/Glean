@@ -1,4 +1,4 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -6,20 +6,20 @@ import org.springframework.data.mongodb.core.mapping.Field;
 /**
  * Created by justi on 12/19/2016.
  */
-public class TVRage {
+public class Facebook {
 
-    @Field(value = "tvrage_id")
-    @JsonProperty("tvrage_id")
-    private String tvrageId;
+    @Field(value = "facebook_id")
+    @JsonProperty("facebook_id")
+    private String facebookId;
 
     private String link;
 
-    public String getTvrageId() {
-        return tvrageId;
+    public String getFacebookId() {
+        return facebookId;
     }
 
-    public void setTvrageId(String tvrageId) {
-        this.tvrageId = tvrageId;
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 
     public String getLink() {

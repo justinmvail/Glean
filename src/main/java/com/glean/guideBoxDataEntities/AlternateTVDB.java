@@ -1,4 +1,4 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 /**
  * Created by justi on 12/24/2016.

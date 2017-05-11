@@ -1,4 +1,4 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 import java.util.List;
 

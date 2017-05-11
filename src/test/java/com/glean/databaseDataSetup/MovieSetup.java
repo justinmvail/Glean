@@ -38,7 +38,6 @@ public class MovieSetup {
     @Value("${movieid.module.elementToSearch}")
     private String[] movieIds;
 
-    @Ignore
     @Test
     public void createTestDataMoviesByScrapingGuideBox() throws IOException {
 

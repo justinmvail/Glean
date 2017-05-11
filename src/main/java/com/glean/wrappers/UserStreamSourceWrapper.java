@@ -1,4 +1,6 @@
-package com.glean.entities;
+package com.glean.wrappers;
+
+import com.glean.guideBoxDataEntities.UserStreamSource;
 
 import java.util.List;
 

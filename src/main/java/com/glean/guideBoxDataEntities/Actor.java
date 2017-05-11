@@ -1,4 +1,4 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;

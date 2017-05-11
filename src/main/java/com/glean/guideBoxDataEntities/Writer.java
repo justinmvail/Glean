@@ -1,9 +1,9 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 /**
  * Created by justi on 12/30/2016.
  */
-public class Director {
+public class Writer {
 
     private String id;
 
@@ -35,5 +35,4 @@ public class Director {
     public void setImdb(String imdb) {
         this.imdb = imdb;
     }
-
 }

@@ -1,6 +1,6 @@
 package com.glean.controller;
 
-import com.glean.entities.UserStreamSource;
+import com.glean.guideBoxDataEntities.UserStreamSource;
 import com.glean.repository.UserStreamSourceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

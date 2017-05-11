@@ -38,7 +38,6 @@ public class ShowSetup {
     @Value("${showid.module.elementToSearch}")
     private String[] showIds;
 
-    @Ignore
     @Test
     public void createTestDataShowsByScrapingGuideBox() throws IOException {
 

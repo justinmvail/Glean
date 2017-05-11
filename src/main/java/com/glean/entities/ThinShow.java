@@ -1,6 +1,9 @@
 package com.glean.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.glean.guideBoxDataEntities.Actor;
+import com.glean.guideBoxDataEntities.Genre;
+import com.glean.guideBoxDataEntities.Tag;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;

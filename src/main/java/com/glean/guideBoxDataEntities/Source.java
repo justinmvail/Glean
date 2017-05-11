@@ -1,14 +1,14 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-/**
- * Created by justi on 12/30/2016.
- */
-public class Trailer {
+import java.util.List;
 
-    private String type;
+/**
+ * Created by justi on 12/23/2016.
+ */
+public class Source {
 
     private String source;
 
@@ -16,20 +16,18 @@ public class Trailer {
     @JsonProperty("display_name")
     private String displayName;
 
+    @Field(value = "tv_channel")
+    @JsonProperty("tv_channel")
+    private String tvChannel;
+
+    private String id;
+
     private String link;
 
     private String embed;
 
+    private List<Format> formats;
 
-
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getSource() {
         return source;
@@ -47,6 +45,22 @@ public class Trailer {
         this.displayName = displayName;
     }
 
+    public String getTvChannel() {
+        return tvChannel;
+    }
+
+    public void setTvChannel(String tvChannel) {
+        this.tvChannel = tvChannel;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getLink() {
         return link;
     }
@@ -61,5 +75,13 @@ public class Trailer {
 
     public void setEmbed(String embed) {
         this.embed = embed;
+    }
+
+    public List<Format> getFormats() {
+        return formats;
+    }
+
+    public void setFormats(List<Format> formats) {
+        this.formats = formats;
     }
 }

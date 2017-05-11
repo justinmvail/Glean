@@ -1,7 +1,7 @@
-package com.glean.entities;
+package com.glean.wrappers;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.mongodb.core.mapping.Field;
+import com.glean.guideBoxDataEntities.Season;
 
 import java.util.List;
 

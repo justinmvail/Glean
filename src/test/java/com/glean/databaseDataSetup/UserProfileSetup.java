@@ -1,6 +1,9 @@
 package com.glean.databaseDataSetup;
 
-import com.glean.entities.*;
+import com.glean.entities.ThinMovie;
+import com.glean.entities.ThinShow;
+import com.glean.entities.UserProfile;
+import com.glean.guideBoxDataEntities.*;
 import com.glean.repository.MovieRepo;
 import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;
@@ -64,7 +67,6 @@ public class UserProfileSetup {
     @Value("${database.collection.userProfile}")
     String userProfileCollection;
 
-    @Ignore
     @Test
     public void createTestDataUserProfilesByScrapingGuideBox() throws IOException {
 

@@ -1,5 +1,6 @@
 package com.glean.entities;
 
+import com.glean.guideBoxDataEntities.UserStreamSource;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;

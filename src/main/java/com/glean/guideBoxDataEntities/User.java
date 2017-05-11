@@ -1,4 +1,4 @@
-package com.glean.entities;
+package com.glean.guideBoxDataEntities;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 

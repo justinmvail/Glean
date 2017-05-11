@@ -1,7 +1,10 @@
 package com.glean.guideBoxAccessLayer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.glean.entities.*;
+import com.glean.wrappers.EpisodesWrapper;
+import com.glean.wrappers.SeasonsWrapper;
+import com.glean.wrappers.UserStreamSourceWrapper;
+import com.glean.guideBoxDataEntities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

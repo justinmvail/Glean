@@ -1,17 +1,13 @@
 package com.glean.controller;
 
-import com.glean.entities.Movie;
+import com.glean.guideBoxDataEntities.Movie;
 import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.glean.repository.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -43,5 +39,11 @@ public class MovieController {
         List<Movie> movies = movieRepo.findByTitle(title);
         return movies;
     }
+
+//    @RequestMapping(value = "guidebox/movie", method = RequestMethod.GET)
+//    public List<Movie> getMovieFromGuideBoxByTitle(@RequestParam(value="title") String title) {
+//
+//
+//    }
 
 }

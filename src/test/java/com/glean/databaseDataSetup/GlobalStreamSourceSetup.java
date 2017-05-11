@@ -34,7 +34,6 @@ public class GlobalStreamSourceSetup {
     @Value("${database.collection.userStreamSource}")
     String globalStreamSourceCollection;
 
-//    @Ignore
     @Test
     public void createTestDataStreamSourcesByScrapingGuideBox() throws IOException {
 
