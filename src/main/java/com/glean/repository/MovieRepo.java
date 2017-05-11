@@ -12,7 +12,7 @@ import java.util.List;
 public interface MovieRepo extends MongoRepository<Movie, String> {
 
     public Movie findById(String id);
-    public List<Show> findByTitle(String title);
+    public List<Movie> findByTitle(String title);
 
 
 }

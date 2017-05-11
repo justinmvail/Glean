@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 public class ShowController {
@@ -25,5 +26,13 @@ public class ShowController {
         }
         return show;
     }
+
+    @RequestMapping("show")
+    public List<Show> getShowByTitle(@RequestParam(value="title") String title) {
+        List<Show> shows = showRepo.findByTitle(title);
+        return shows;
+    }
+
+
 
 }
