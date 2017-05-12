@@ -40,8 +40,8 @@ public class GlobalStreamSourceSetup {
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
         mongoTemplate.remove(new Query(), globalStreamSourceCollection);
 
-        globalStreamSourceRepo.save(dataAggregator.fetchAndAssembleFreeSources());
-        globalStreamSourceRepo.save(dataAggregator.fetchAndAssembleSubscriptionSources());
+        globalStreamSourceRepo.save(dataAggregator.fetchAndAssembleFreeSources().getResults());
+        globalStreamSourceRepo.save(dataAggregator.fetchAndAssembleSubscriptionSources().getResults());
 
     }
 

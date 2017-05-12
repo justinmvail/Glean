@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by michaelplott on 12/17/16.
+ * Created by justi on 12/17/16.
  */
 public class Show{
     @Field(value = "_id")

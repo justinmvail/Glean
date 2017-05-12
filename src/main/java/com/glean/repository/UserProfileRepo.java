@@ -1,6 +1,7 @@
 package com.glean.repository;
 
 import com.glean.entities.UserProfile;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface UserProfileRepo extends MongoRepository<UserProfile, String>{
 
-    public UserProfile findByUserId(String id);
+    public UserProfile findByUserId(ObjectId id);
     public UserProfile findByUserName(String userName);
 
 }

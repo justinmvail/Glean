@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * Created by michaelplott on 12/17/16.
+ * Created by justi on 12/17/16.
  */
 public class Genre {
 

@@ -23,6 +23,10 @@ public class SessionHelper {
         return sessionHelper;
     }
 
+    public void setUserProfile(HttpSession session, UserProfile userProfileObject){
+        session.setAttribute(userProfile, userProfileObject);
+    }
+
     public UserProfile getUserProfile(HttpSession session){
         return (UserProfile)session.getAttribute(userProfile);
     }

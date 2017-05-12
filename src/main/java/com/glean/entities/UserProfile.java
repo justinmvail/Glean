@@ -1,6 +1,7 @@
 package com.glean.entities;
 
 import com.glean.guideBoxDataEntities.UserStreamSource;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public class UserProfile {
 
     @Field(value = "_id")
-    private String userId;
+    private ObjectId userId;
 
     private String userName;
 
@@ -26,11 +27,11 @@ public class UserProfile {
     private List<ThinMovie> wantedMovies;
 
 
-    public String getUserId() {
+    public ObjectId getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(ObjectId userId) {
         this.userId = userId;
     }
 

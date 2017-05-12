@@ -1,7 +1,9 @@
 package com.glean.guideBoxAccessLayer;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.glean.wrappers.EpisodesWrapper;
+import com.glean.wrappers.MovieListWrapper;
 import com.glean.wrappers.SeasonsWrapper;
 import com.glean.wrappers.UserStreamSourceWrapper;
 import com.glean.guideBoxDataEntities.*;
@@ -59,16 +61,22 @@ public class GuideBoxDataAggregator {
         return mapper.readValue(accessor.getMovieByMovieId(apiKey, movieId), Movie.class);
     }
 
-    public List<UserStreamSource> fetchAndAssembleFreeSources() throws IOException {
-        List<String> sources = new ArrayList<>();
-        sources.add("free");
-        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class).getResults();
+    public MovieListWrapper fetchAndAssembleMovieListFromGuideBoxByTitle(String title) throws IOException {
+        List<String> sources = new ArrayList<String>();
+        sources.add("all");
+        return mapper.readValue(accessor.getMovieByTitle(apiKey, title), MovieListWrapper.class);
     }
 
-    public List<UserStreamSource> fetchAndAssembleSubscriptionSources() throws IOException {
+    public UserStreamSourceWrapper fetchAndAssembleFreeSources() throws IOException {
+        List<String> sources = new ArrayList<>();
+        sources.add("free");
+        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class);
+    }
+
+    public UserStreamSourceWrapper fetchAndAssembleSubscriptionSources() throws IOException {
         List<String> sources = new ArrayList<>();
         sources.add("subscription");
-        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class).getResults();
+        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class);
     }
 
 }
