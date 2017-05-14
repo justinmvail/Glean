@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by justi on 12/30/2016.
  */
-public class Movie {
+public class Movie extends WebStreamableMedia {
 
     @Field(value = "_id")
     @JsonProperty("id")
@@ -94,10 +94,6 @@ public class Movie {
 
     private List<Actor> cast;
 
-    @Field(value = "free_web_sources")
-    @JsonProperty("free_web_sources")
-    private List<Source> freeWebSources;
-
     @Field(value = "free_ios_sources")
     @JsonProperty("free_ios_sources")
     private List<Source> freeIosSources;
@@ -105,10 +101,6 @@ public class Movie {
     @Field(value = "free_android_sources")
     @JsonProperty("free_android_sources")
     private List<Source> freeAndroidSources;
-
-    @Field(value = "tv_everywhere_web_sources")
-    @JsonProperty("tv_everywhere_web_sources")
-    private List<Source> tvEverywhereWebSources;
 
     @Field(value = "tv_everywhere_ios_sources")
     @JsonProperty("tv_everywhere_ios_sources")
@@ -118,10 +110,6 @@ public class Movie {
     @JsonProperty("tv_everywhere_android_sources")
     private List<Source> tvEverywhereAndroidSources;
 
-    @Field(value = "subscription_web_sources")
-    @JsonProperty("subscription_web_sources")
-    private List<Source> subscriptionWebSources;
-
     @Field(value = "subscription_ios_sources")
     @JsonProperty("subscription_ios_sources")
     private List<Source> subscriptionIosSources;
@@ -129,10 +117,6 @@ public class Movie {
     @Field(value = "subscription_android_sources")
     @JsonProperty("subscription_android_sources")
     private List<Source> subscriptionAndroidSources;
-
-    @Field(value = "purchase_web_sources")
-    @JsonProperty("purchase_web_sources")
-    private List<Source> purchaseWebSources;
 
     @Field(value = "purchase_ios_sources")
     @JsonProperty("purchase_ios_sources")
@@ -366,14 +350,6 @@ public class Movie {
         this.cast = cast;
     }
 
-    public List<Source> getFreeWebSources() {
-        return freeWebSources;
-    }
-
-    public void setFreeWebSources(List<Source> freeWebSources) {
-        this.freeWebSources = freeWebSources;
-    }
-
     public List<Source> getFreeIosSources() {
         return freeIosSources;
     }
@@ -388,14 +364,6 @@ public class Movie {
 
     public void setFreeAndroidSources(List<Source> freeAndroidSources) {
         this.freeAndroidSources = freeAndroidSources;
-    }
-
-    public List<Source> getTvEverywhereWebSources() {
-        return tvEverywhereWebSources;
-    }
-
-    public void setTvEverywhereWebSources(List<Source> tvEverywhereWebSources) {
-        this.tvEverywhereWebSources = tvEverywhereWebSources;
     }
 
     public List<Source> getTvEverywhereIosSources() {
@@ -414,14 +382,6 @@ public class Movie {
         this.tvEverywhereAndroidSources = tvEverywhereAndroidSources;
     }
 
-    public List<Source> getSubscriptionWebSources() {
-        return subscriptionWebSources;
-    }
-
-    public void setSubscriptionWebSources(List<Source> subscriptionWebSources) {
-        this.subscriptionWebSources = subscriptionWebSources;
-    }
-
     public List<Source> getSubscriptionIosSources() {
         return subscriptionIosSources;
     }
@@ -436,14 +396,6 @@ public class Movie {
 
     public void setSubscriptionAndroidSources(List<Source> subscriptionAndroidSources) {
         this.subscriptionAndroidSources = subscriptionAndroidSources;
-    }
-
-    public List<Source> getPurchaseWebSources() {
-        return purchaseWebSources;
-    }
-
-    public void setPurchaseWebSources(List<Source> purchaseWebSources) {
-        this.purchaseWebSources = purchaseWebSources;
     }
 
     public List<Source> getPurchaseIosSources() {

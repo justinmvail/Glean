@@ -39,6 +39,7 @@ dependencies {
 }
 
 test {
+	exclude 'com/glean/databaseDataSetup/**'
 	testLogging {
 		events 'started', 'passed'
 	}

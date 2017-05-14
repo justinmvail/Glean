@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by justi on 12/21/2016.
  */
-public class Episode {
+public class Episode extends WebStreamableMedia{
 
     @Field(value = "id")
     @JsonProperty("id")
@@ -86,23 +86,6 @@ public class Episode {
     @Field(value = "thumbnail_608x342")
     @JsonProperty("thumbnail_608x342")
     private String thumbnail608x342;
-
-    @Field(value = "free_web_sources")
-    @JsonProperty("free_web_sources")
-    private List<Source> freeWebSources;
-
-    @Field(value = "tv_everywhere_web_sources")
-    @JsonProperty("tv_everywhere_web_sources")
-    private List<Source> tvEverywhereWebSources;
-
-    @Field(value = "subscription_web_sources")
-    @JsonProperty("subscription_web_sources")
-    private List<Source> subscriptionWebSources;
-
-    @Field(value = "purchase_web_sources")
-    @JsonProperty("purchase_web_sources")
-    private List<Source> purchaseWebSources;
-
 
     public String getId() {
         return id;
@@ -280,44 +263,4 @@ public class Episode {
         this.thumbnail608x342 = thumbnail608x342;
     }
 
-    public List<Source> getFreeWebSources() {
-        return freeWebSources;
-    }
-
-    public void setFreeWebSources(List<Source> freeWebSources) {
-        this.freeWebSources = freeWebSources;
-    }
-
-    public List<Source> getTvEverywhereWebSources() {
-        return tvEverywhereWebSources;
-    }
-
-    public void setTvEverywhereWebSources(List<Source> tvEverywhereWebSources) {
-        this.tvEverywhereWebSources = tvEverywhereWebSources;
-    }
-
-    public List<Source> getSubscriptionWebSources() {
-        return subscriptionWebSources;
-    }
-
-    public void setSubscriptionWebSources(List<Source> subscriptionWebSources) {
-        this.subscriptionWebSources = subscriptionWebSources;
-    }
-
-    public List<Source> getPurchaseWebSources() {
-        return purchaseWebSources;
-    }
-
-    public void setPurchaseWebSources(List<Source> purchaseWebSources) {
-        this.purchaseWebSources = purchaseWebSources;
-    }
-
-    public List<Source> getAllSources(){
-        List<Source> sources = new ArrayList<>();
-        sources.addAll(getFreeWebSources());
-        sources.addAll(getPurchaseWebSources());
-        sources.addAll(getSubscriptionWebSources());
-        sources.addAll(getTvEverywhereWebSources());
-        return sources;
-    }
 }
