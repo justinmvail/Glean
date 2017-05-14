@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by justi on 4/19/2017.
  */
+//TODO: This should probably just be a spring service instead of a singleton. Is there any advantage to non-managed singletons in Spring?
 public class ShowFilter {
     //Thread safe singleton
     private static ShowFilter showFilter;
