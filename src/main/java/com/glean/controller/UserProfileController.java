@@ -2,6 +2,7 @@ package com.glean.controller;
 
 import com.glean.entities.ThinMovie;
 import com.glean.entities.UserProfile;
+import com.glean.filter.MovieFilter;
 import com.glean.guideBoxDataEntities.Movie;
 import com.glean.repository.MovieRepo;
 import com.glean.repository.UserProfileRepo;
@@ -27,16 +28,19 @@ public class UserProfileController {
     @Autowired
     private MovieRepo movieRepo;
 
-//    @RequestMapping(value = "userProfile/movie", method = RequestMethod.POST)
-//    public void addMovieToUserProfile(@RequestParam(value="id") String id, HttpSession session) {
-//        UserProfile userProfile = userProfileRepo.findByUserId(SessionHelper.getInstance().getUserProfile(session).getUserId());
-////        Movie movie = movieRepo.findById(id);
-////        ThinMovie thinMovie = new ThinMovie();
-////        BeanUtils.copyProperties(movie, thinMovie);
-//////        TODO: this should not just be added to the "availableMovies".  We need to determine where it goes based on the userStreawmSources
-////        userProfile.getAvailableMovies().add(thinMovie);
-//        userProfileRepo.(userProfile);
-////        SessionHelper.getInstance().setUserProfile(session, userProfile);
-//    }
+    @RequestMapping(value = "userProfile/movie", method = RequestMethod.POST)
+    public void addMovieToUserProfile(@RequestParam(value="id") String id, HttpSession session) {
+        UserProfile userProfile = userProfileRepo.findByUserId(SessionHelper.getInstance().getUserProfile(session).getUserId());
+        Movie movie = movieRepo.findById(id);
+        ThinMovie thinMovie = new ThinMovie();
+        BeanUtils.copyProperties(movie, thinMovie);
+        if(MovieFilter.getInstance().doesUserHaveAccessToMovie(userProfile.getUserStreamSources(), movie)){
+            userProfile.getAvailableMovies().add(thinMovie);
+        }else{
+            userProfile.getWantedMovies().add(thinMovie);
+        }
+        userProfileRepo.save(userProfile);
+        SessionHelper.getInstance().setUserProfile(session, userProfile);
+    }
 
 }

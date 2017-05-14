@@ -2,8 +2,10 @@ package com.glean.entities;
 
 import com.glean.guideBoxDataEntities.UserStreamSource;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +13,7 @@ import java.util.List;
  */
 public class UserProfile {
 
-    @Field(value = "_id")
+    @Id
     private ObjectId userId;
 
     private String userName;
@@ -52,6 +54,9 @@ public class UserProfile {
     }
 
     public List<ThinShow> getAvailableShows() {
+        if(availableShows == null){
+            availableShows = new ArrayList<>();
+        }
         return availableShows;
     }
 
@@ -60,6 +65,9 @@ public class UserProfile {
     }
 
     public List<ThinMovie> getAvailableMovies() {
+        if(availableMovies == null){
+            availableMovies = new ArrayList<>();
+        }
         return availableMovies;
     }
 
@@ -68,6 +76,9 @@ public class UserProfile {
     }
 
     public List<ThinShow> getWantedShows() {
+        if(wantedShows == null){
+            wantedShows = new ArrayList<>();
+        }
         return wantedShows;
     }
 
@@ -76,6 +87,9 @@ public class UserProfile {
     }
 
     public List<ThinMovie> getWantedMovies() {
+        if(wantedMovies == null){
+            wantedMovies = new ArrayList<>();
+        }
         return wantedMovies;
     }
 
