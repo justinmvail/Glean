@@ -57,4 +57,12 @@ public class ShowFilter {
         return show;
     }
 
+    public boolean doesUserHaveAccessToShow(List<UserStreamSource> userStreamSources, Show show){
+        Show filteredShow = filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, userStreamSources);
+        if(filteredShow.getSeasons().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
 }

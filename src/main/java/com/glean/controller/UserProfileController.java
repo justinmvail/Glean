@@ -1,10 +1,14 @@
 package com.glean.controller;
 
 import com.glean.entities.ThinMovie;
+import com.glean.entities.ThinShow;
 import com.glean.entities.UserProfile;
 import com.glean.filter.MovieFilter;
+import com.glean.filter.ShowFilter;
 import com.glean.guideBoxDataEntities.Movie;
+import com.glean.guideBoxDataEntities.Show;
 import com.glean.repository.MovieRepo;
+import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +32,9 @@ public class UserProfileController {
     @Autowired
     private MovieRepo movieRepo;
 
+    @Autowired
+    private ShowRepo showRepo;
+
     @RequestMapping(value = "userProfile/movie", method = RequestMethod.POST)
     public void addMovieToUserProfile(@RequestParam(value="id") String id, HttpSession session) {
         UserProfile userProfile = userProfileRepo.findByUserId(SessionHelper.getInstance().getUserProfile(session).getUserId());
@@ -38,6 +45,21 @@ public class UserProfileController {
             userProfile.getAvailableMovies().add(thinMovie);
         }else{
             userProfile.getWantedMovies().add(thinMovie);
+        }
+        userProfileRepo.save(userProfile);
+        SessionHelper.getInstance().setUserProfile(session, userProfile);
+    }
+
+    @RequestMapping(value = "userProfile/show", method = RequestMethod.POST)
+    public void addShowToUserProfile(@RequestParam(value="id") String id, HttpSession session) {
+        UserProfile userProfile = userProfileRepo.findByUserId(SessionHelper.getInstance().getUserProfile(session).getUserId());
+        Show show = showRepo.findById(id);
+        ThinShow thinShow = new ThinShow();
+        BeanUtils.copyProperties(show, thinShow);
+        if(ShowFilter.getInstance().doesUserHaveAccessToShow(userProfile.getUserStreamSources(), show)){
+            userProfile.getAvailableShows().add(thinShow);
+        }else{
+            userProfile.getWantedShows().add(thinShow);
         }
         userProfileRepo.save(userProfile);
         SessionHelper.getInstance().setUserProfile(session, userProfile);

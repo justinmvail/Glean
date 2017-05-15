@@ -1,11 +1,7 @@
 package com.glean.guideBoxAccessLayer;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.glean.wrappers.EpisodesWrapper;
-import com.glean.wrappers.MovieListWrapper;
-import com.glean.wrappers.SeasonsWrapper;
-import com.glean.wrappers.UserStreamSourceWrapper;
+import com.glean.wrappers.*;
 import com.glean.guideBoxDataEntities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -53,6 +49,14 @@ public class GuideBoxDataAggregator {
             show.addSeason(season);
         }
         return show;
+    }
+
+    public ShowListWrapper fetchAndAssembleShowFromGuideBox(String title) throws IOException {
+        List<String> sources = new ArrayList<String>();
+        sources.add("all");
+        System.out.println(accessor.getShowByShowTitle(apiKey, title));
+        ShowListWrapper showListWrapper = mapper.readValue(accessor.getShowByShowTitle(apiKey, title), ShowListWrapper.class);
+        return showListWrapper;
     }
 
     public Movie fetchAndAssembleMovieFromGuideBox(String movieId) throws IOException {
