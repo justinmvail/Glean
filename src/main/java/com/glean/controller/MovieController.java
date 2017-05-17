@@ -28,8 +28,7 @@ public class MovieController {
     @Autowired
     private GuideBoxDataAggregator dataAggregator;
 
-    @Value("${apikey}")
-    String apiKey;
+
 
     @RequestMapping(value = "movie/{id}", method = RequestMethod.GET)
     public Movie getShow(@PathVariable(value="id") String id) {
