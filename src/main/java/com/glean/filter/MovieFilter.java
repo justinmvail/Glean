@@ -1,8 +1,8 @@
 package com.glean.filter;
 
-import com.glean.guideBoxDataEntities.Movie;
-import com.glean.guideBoxDataEntities.Source;
-import com.glean.guideBoxDataEntities.UserStreamSource;
+import com.glean.guideBoxDataEntity.Movie;
+import com.glean.guideBoxDataEntity.Source;
+import com.glean.guideBoxDataEntity.UserStreamSource;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.glean.controller;
 
-import com.glean.guideBoxDataEntities.Movie;
+import com.glean.guideBoxDataEntity.Movie;
 import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.glean.repository.MovieRepo;

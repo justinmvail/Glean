@@ -1,6 +1,6 @@
 package com.glean.filter;
 
-import com.glean.guideBoxDataEntities.*;
+import com.glean.guideBoxDataEntity.*;
 
 import java.util.Iterator;
 import java.util.List;

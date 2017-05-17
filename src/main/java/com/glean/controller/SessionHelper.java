@@ -1,6 +1,6 @@
 package com.glean.controller;
 
-import com.glean.entities.UserProfile;
+import com.glean.entity.UserProfile;
 
 import javax.servlet.http.HttpSession;
 

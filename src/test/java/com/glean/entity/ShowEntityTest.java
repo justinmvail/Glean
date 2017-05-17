@@ -1,8 +1,8 @@
 package com.glean.entity;
 
-import com.glean.guideBoxDataEntities.Episode;
-import com.glean.guideBoxDataEntities.Season;
-import com.glean.guideBoxDataEntities.Show;
+import com.glean.guideBoxDataEntity.Episode;
+import com.glean.guideBoxDataEntity.Season;
+import com.glean.guideBoxDataEntity.Show;
 import com.glean.repository.ShowRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;

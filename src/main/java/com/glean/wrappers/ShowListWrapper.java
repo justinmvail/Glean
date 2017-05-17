@@ -1,7 +1,7 @@
 package com.glean.wrappers;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.glean.guideBoxDataEntities.Show;
+import com.glean.guideBoxDataEntity.Show;
 
 import java.util.List;
 

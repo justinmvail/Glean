@@ -1,16 +1,15 @@
 package com.glean.databaseDataSetup;
 
-import com.glean.entities.ThinMovie;
-import com.glean.entities.ThinShow;
-import com.glean.entities.UserProfile;
-import com.glean.guideBoxDataEntities.*;
+import com.glean.entity.ThinMovie;
+import com.glean.entity.ThinShow;
+import com.glean.entity.UserProfile;
+import com.glean.guideBoxDataEntity.*;
 import com.glean.repository.MovieRepo;
 import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.glean.repository.UserStreamSourceRepo;
 import com.mongodb.MongoClient;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeanUtils;

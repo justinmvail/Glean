@@ -1,6 +1,6 @@
 package com.glean.repository;
 
-import com.glean.guideBoxDataEntities.Show;
+import com.glean.guideBoxDataEntity.Show;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

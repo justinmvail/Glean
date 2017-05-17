@@ -1,7 +1,7 @@
 package com.glean.controller;
 
 import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
-import com.glean.guideBoxDataEntities.Show;
+import com.glean.guideBoxDataEntity.Show;
 import com.glean.filter.ShowFilter;
 import com.glean.repository.ShowRepo;
 import com.glean.wrappers.ShowListWrapper;

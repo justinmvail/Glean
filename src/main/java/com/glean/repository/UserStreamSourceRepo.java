@@ -1,6 +1,6 @@
 package com.glean.repository;
 
-import com.glean.guideBoxDataEntities.UserStreamSource;
+import com.glean.guideBoxDataEntity.UserStreamSource;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**

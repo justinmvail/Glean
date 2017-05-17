@@ -1,7 +1,7 @@
 package com.glean.filter;
 
-import com.glean.guideBoxDataEntities.Show;
-import com.glean.guideBoxDataEntities.UserStreamSource;
+import com.glean.guideBoxDataEntity.Show;
+import com.glean.guideBoxDataEntity.UserStreamSource;
 import com.glean.repository.ShowRepo;
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package com.glean.entity;
 
-import com.glean.guideBoxDataEntities.Movie;
+import com.glean.guideBoxDataEntity.Movie;
 import com.glean.repository.MovieRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;

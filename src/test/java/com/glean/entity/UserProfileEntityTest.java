@@ -1,6 +1,5 @@
 package com.glean.entity;
 
-import com.glean.entities.UserProfile;
 import com.glean.repository.UserProfileRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;

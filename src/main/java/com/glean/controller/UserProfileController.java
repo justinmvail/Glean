@@ -1,12 +1,12 @@
 package com.glean.controller;
 
-import com.glean.entities.ThinMovie;
-import com.glean.entities.ThinShow;
-import com.glean.entities.UserProfile;
+import com.glean.entity.ThinMovie;
+import com.glean.entity.ThinShow;
+import com.glean.entity.UserProfile;
 import com.glean.filter.MovieFilter;
 import com.glean.filter.ShowFilter;
-import com.glean.guideBoxDataEntities.Movie;
-import com.glean.guideBoxDataEntities.Show;
+import com.glean.guideBoxDataEntity.Movie;
+import com.glean.guideBoxDataEntity.Show;
 import com.glean.repository.MovieRepo;
 import com.glean.repository.ShowRepo;
 import com.glean.repository.UserProfileRepo;

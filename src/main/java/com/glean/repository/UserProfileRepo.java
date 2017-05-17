@@ -1,6 +1,6 @@
 package com.glean.repository;
 
-import com.glean.entities.UserProfile;
+import com.glean.entity.UserProfile;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
