@@ -35,13 +35,19 @@ public class UserProfileController {
     @Autowired
     private ShowRepo showRepo;
 
+    @Autowired
+    private MovieFilter movieFilter;
+
+    @Autowired
+    private ShowFilter showFilter;
+
     @RequestMapping(value = "userProfile/movie", method = RequestMethod.POST)
     public void addMovieToUserProfile(@RequestParam(value="id") String id, HttpSession session) {
         UserProfile userProfile = userProfileRepo.findByUserId(SessionHelper.getInstance().getUserProfile(session).getUserId());
         Movie movie = movieRepo.findById(id);
         ThinMovie thinMovie = new ThinMovie();
         BeanUtils.copyProperties(movie, thinMovie);
-        if(MovieFilter.getInstance().doesUserHaveAccessToMovie(userProfile.getUserStreamSources(), movie)){
+        if(movieFilter.doesUserHaveAccessToMovie(userProfile.getUserStreamSources(), movie)){
             userProfile.getAvailableMovies().add(thinMovie);
         }else{
             userProfile.getWantedMovies().add(thinMovie);
@@ -56,7 +62,7 @@ public class UserProfileController {
         Show show = showRepo.findById(id);
         ThinShow thinShow = new ThinShow();
         BeanUtils.copyProperties(show, thinShow);
-        if(ShowFilter.getInstance().doesUserHaveAccessToShow(userProfile.getUserStreamSources(), show)){
+        if(showFilter.doesUserHaveAccessToShow(userProfile.getUserStreamSources(), show)){
             userProfile.getAvailableShows().add(thinShow);
         }else{
             userProfile.getWantedShows().add(thinShow);

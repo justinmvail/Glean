@@ -21,11 +21,14 @@ public class ShowController {
     @Autowired
     private GuideBoxDataAggregator dataAggregator;
 
+    @Autowired
+    private ShowFilter showFilter;
+
     @RequestMapping(value = "show/{id}", method = RequestMethod.GET)
     public Show getShow(@PathVariable(value="id") String id, @RequestParam(value="filtered") boolean isFiltered,  HttpSession session) {
         Show show = showRepo.findById(id);
         if(isFiltered){
-            show = ShowFilter.getInstance().filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, SessionHelper.getInstance().getUserProfile(session).getUserStreamSources());
+            show = showFilter.filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, SessionHelper.getInstance().getUserProfile(session).getUserStreamSources());
         }
         return show;
     }

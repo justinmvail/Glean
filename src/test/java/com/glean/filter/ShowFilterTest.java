@@ -23,6 +23,9 @@ public class ShowFilterTest {
     @Autowired
     private ShowRepo showRepo;
 
+    @Autowired
+    private ShowFilter showFilter;
+
     @Test
     public void testFilterShowEpisodesAndSourcesBasedOnUserStreamSources() throws Exception {
         long startingTime = System.currentTimeMillis() % 1000;
@@ -31,7 +34,7 @@ public class ShowFilterTest {
         UserStreamSource userStreamSource = new UserStreamSource();
         userStreamSource.setSource("netflix");
         streamSources.add(userStreamSource);
-        Show filteredShow = ShowFilter.getInstance().filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, streamSources);
+        Show filteredShow = showFilter.filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, streamSources);
         Assert.assertNotNull(filteredShow.getSeasons().get(0).getEpisodes().get(0));
 
         long endingTime = System.currentTimeMillis() % 1000;
