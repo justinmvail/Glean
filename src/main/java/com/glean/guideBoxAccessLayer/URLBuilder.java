@@ -27,4 +27,6 @@ public interface URLBuilder {
     String buildUrlToGetMovieByMovieId(String apiKey, String movieId);
 
     String buildUrlToGetMovieByTitle(String apiKey, String movieName);
+
+    String buildUrlToGetGuideboxTimeStamp(String apiKey);
 }

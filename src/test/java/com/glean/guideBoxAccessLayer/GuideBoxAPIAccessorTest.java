@@ -103,4 +103,11 @@ public class GuideBoxAPIAccessorTest {
         System.out.println(jsonResult);
     }
 
+    @Test
+    public void testGetTimeStamp() throws Exception {
+        System.out.println("Getting TimeStamp From GuideBox: ");
+        String jsonResult = accessor.getGuideBoxTimeStamp(apiKey);
+        System.out.println(jsonResult);
+    }
+
 }

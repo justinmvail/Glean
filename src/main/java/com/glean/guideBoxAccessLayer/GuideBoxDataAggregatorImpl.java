@@ -33,6 +33,7 @@ public class GuideBoxDataAggregatorImpl implements GuideBoxDataAggregator {
     public Show fetchAndAssembleFullShowFromGuideBox(String showId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
+        TimeStampWrapper timeStampWrapper = mapper.readValue(accessor.getGuideBoxTimeStamp(apiKey), TimeStampWrapper.class);
         Show show = mapper.readValue(accessor.getShowByShowId(apiKey, showId), Show.class);
         SeasonsWrapper seasonsWrapper = mapper.readValue(accessor.getSeasonsByShowId(apiKey, showId), SeasonsWrapper.class);
         for(Season season : seasonsWrapper.getResults()) {
@@ -49,6 +50,7 @@ public class GuideBoxDataAggregatorImpl implements GuideBoxDataAggregator {
             season.setEpisodes(episodesWrapper.getResults());
             show.addSeason(season);
         }
+        show.setTimeStamp(timeStampWrapper.getResults());
         return show;
     }
 
@@ -56,7 +58,6 @@ public class GuideBoxDataAggregatorImpl implements GuideBoxDataAggregator {
     public ShowListWrapper fetchAndAssembleShowFromGuideBox(String title) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
-        System.out.println(accessor.getShowByShowTitle(apiKey, title));
         ShowListWrapper showListWrapper = mapper.readValue(accessor.getShowByShowTitle(apiKey, title), ShowListWrapper.class);
         return showListWrapper;
     }
@@ -65,7 +66,10 @@ public class GuideBoxDataAggregatorImpl implements GuideBoxDataAggregator {
     public Movie fetchAndAssembleMovieFromGuideBox(String movieId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
-        return mapper.readValue(accessor.getMovieByMovieId(apiKey, movieId), Movie.class);
+        TimeStampWrapper timeStampWrapper = mapper.readValue(accessor.getGuideBoxTimeStamp(apiKey), TimeStampWrapper.class);
+        Movie movie = mapper.readValue(accessor.getMovieByMovieId(apiKey, movieId), Movie.class);
+        movie.setTimeStamp(timeStampWrapper.getResults());
+        return movie;
     }
 
     @Override
@@ -87,6 +91,11 @@ public class GuideBoxDataAggregatorImpl implements GuideBoxDataAggregator {
         List<String> sources = new ArrayList<>();
         sources.add("subscription");
         return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class);
+    }
+
+    @Override
+    public TimeStampWrapper fetchGuideBoxTimeStamp() throws IOException{
+        return mapper.readValue(accessor.getGuideBoxTimeStamp(apiKey), TimeStampWrapper.class);
     }
 
 }

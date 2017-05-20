@@ -110,6 +110,8 @@ public class Show{
 
     private List<Season> seasons;
 
+    private String timeStamp;
+
 
 
 
@@ -399,6 +401,14 @@ public class Show{
 
     public void setSeasons(List<Season> seasons) {
         this.seasons = seasons;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public void addSeason(Season season){

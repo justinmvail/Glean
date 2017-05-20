@@ -85,6 +85,12 @@ public class GuideBoxAPIAccessorImpl implements GuideBoxAPIAccessor {
     }
 
     @Override
+    public String getGuideBoxTimeStamp(String apiKey) throws IOException{
+        String url = urlBuilder.buildUrlToGetGuideboxTimeStamp(apiKey);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
     public String getMovieByTitle(String apiKey, String movieName) throws IOException{
         String url = urlBuilder.buildUrlToGetMovieByTitle(apiKey, movieName);
         return urlCaller.makeCall(url);

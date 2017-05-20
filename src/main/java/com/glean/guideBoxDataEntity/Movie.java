@@ -126,6 +126,8 @@ public class Movie extends WebStreamableMedia {
     @JsonProperty("purchase_android_sources")
     private List<Source> purchaseAndroidSources;
 
+    private String timeStamp;
+
     public String getId() {
         return id;
     }
@@ -414,4 +416,11 @@ public class Movie extends WebStreamableMedia {
         this.purchaseAndroidSources = purchaseAndroidSources;
     }
 
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 }

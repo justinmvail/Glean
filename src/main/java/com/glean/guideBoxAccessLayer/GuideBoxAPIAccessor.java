@@ -29,5 +29,7 @@ public interface GuideBoxAPIAccessor {
 
     String getMovieByMovieId(String apiKey, String movieId) throws IOException;
 
+    String getGuideBoxTimeStamp(String apiKey) throws IOException;
+
     String getMovieByTitle(String apiKey, String movieName) throws IOException;
 }

@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 //TODO This class is really stupid and just makes things more difficult to update... figure out a better way to do this... even hard coded strings in better than this
 //TODO I think that a String.format() could be used much more effectively inside the GuideBoxAPIAccessor class and this class should be removed.
+//TODO Also, I wrote this on api 1.43.  Version 2 has been released... just another reason to redo this.
 public class URLBuilderImpl implements URLBuilder {
 
     public final String BASE_URL = "http://api-public.guidebox.com/v1.43/US/";
@@ -28,7 +29,10 @@ public class URLBuilderImpl implements URLBuilder {
     public final String FREE = "free/";
     public final String SUBSCRIPTION = "subscription/";
     public final String ALL = "all/";
+    public final String UPDATES = "updates/";
+    public final String GET_CURRENT_TIME = "get_current_time/";
     public final String CHRONOLOGICAL_ORDER = "?reverse_ordering=true";
+
 
     @Override
     public String buildUrlToGetShowByTelevisionDatabaseShowId(String apiKey, String showId){
@@ -146,6 +150,15 @@ public class URLBuilderImpl implements URLBuilder {
         strBuilder.append(TITLE);
         strBuilder.append(movieName);
         return strBuilder.toString();
+    }
+
+    @Override
+    public String buildUrlToGetGuideboxTimeStamp(String apiKey){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(GET_CURRENT_TIME);
+        return stringBuilder.toString();
     }
 
 

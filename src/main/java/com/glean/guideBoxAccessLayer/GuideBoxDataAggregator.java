@@ -4,6 +4,7 @@ import com.glean.guideBoxDataEntity.Movie;
 import com.glean.guideBoxDataEntity.Show;
 import com.glean.wrappers.MovieListWrapper;
 import com.glean.wrappers.ShowListWrapper;
+import com.glean.wrappers.TimeStampWrapper;
 import com.glean.wrappers.UserStreamSourceWrapper;
 
 import java.io.IOException;
@@ -23,4 +24,6 @@ public interface GuideBoxDataAggregator {
     UserStreamSourceWrapper fetchAndAssembleFreeSources() throws IOException;
 
     UserStreamSourceWrapper fetchAndAssembleSubscriptionSources() throws IOException;
+
+    TimeStampWrapper fetchGuideBoxTimeStamp() throws IOException;
 }
