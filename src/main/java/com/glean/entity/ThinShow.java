@@ -53,6 +53,9 @@ public class ThinShow {
 
     private String url;
 
+    private String timeStamp;
+
+
 
     public String getId() {
         return id;
@@ -164,6 +167,14 @@ public class ThinShow {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
 

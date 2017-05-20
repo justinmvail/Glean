@@ -48,6 +48,9 @@ public class ThinMovie {
 
     private String duration;
 
+    private String timeStamp;
+
+
 
     public String getId() {
         return id;
@@ -143,5 +146,13 @@ public class ThinMovie {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
