@@ -96,5 +96,53 @@ public class GuideBoxAPIAccessorImpl implements GuideBoxAPIAccessor {
         return urlCaller.makeCall(url);
     }
 
+    @Override
+    public String getChangedShows(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetChangedShows(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getDeletedShows(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetDeletedShows(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetShowWithChangedEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetChangedEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetNewEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetDeletedEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getChangedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetChangedMovies(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
+    @Override
+    public String getDeletedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetDeletedMovies(apiKey, lastProcessTime, limit, pageNumber);
+        return urlCaller.makeCall(url);
+    }
+
 }
 

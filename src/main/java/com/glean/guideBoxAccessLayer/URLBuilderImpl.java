@@ -15,23 +15,37 @@ import java.util.List;
 public class URLBuilderImpl implements URLBuilder {
 
     public final String BASE_URL = "http://api-public.guidebox.com/v1.43/US/";
-    public final String SEARCH = "search/";
-    public final String TITLE = "title/";
-    public final String ID = "id/";
-    public final String TVDB = "tvdb/";
-    public final String THE_MOVIE_DB = "themoviedb/";
-    public final String SEASONS = "seasons/";
-    public final String EPISODES = "episodes/";
-    public final String SHOW = "show/";
-    public final String MOVIE = "movie/";
-    public final String RELATED = "related/";
-    public final String SOURCES = "sources/";
-    public final String FREE = "free/";
-    public final String SUBSCRIPTION = "subscription/";
+
+    //resources
     public final String ALL = "all/";
-    public final String UPDATES = "updates/";
+    public final String CHANGED_EPISODES = "changed_episodes/";
+    public final String CHANGES = "changes/";
+    public final String DELETES = "deletes/";
+    public final String EPISODES = "episodes/";
+    public final String FREE = "free/";
     public final String GET_CURRENT_TIME = "get_current_time/";
+    public final String ID = "id/";
+    public final String MOVIE = "movie/";
+    public final String MOVIES = "movies/";
+    public final String NEW = "new/";
+    public final String RELATED = "related/";
+    public final String SEARCH = "search/";
+    public final String SEASONS = "seasons/";
+    public final String SHOW = "show/";
+    public final String SHOWS = "shows/";
+    public final String SOURCES = "sources/";
+    public final String SUBSCRIPTION = "subscription/";
+    public final String THE_MOVIE_DB = "themoviedb/";
+    public final String TITLE = "title/";
+    public final String TVDB = "tvdb/";
+    public final String UPDATES = "updates/";
+
+    //query parameters
     public final String CHRONOLOGICAL_ORDER = "?reverse_ordering=true";
+    public final String LIMIT = "?limit=";
+    public final String PAGE = "&page=";
+
+
 
 
     @Override
@@ -161,6 +175,134 @@ public class URLBuilderImpl implements URLBuilder {
         return stringBuilder.toString();
     }
 
+//    Show Changes
+//    Show IDs are listed here when any basic show data changes (i.e. overview, related images, etc). Please note that if any child data changes (i.e. an episode), that will not be reflected here.
+//    {Base API URL} /updates/shows/changes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetChangedShows(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(SHOWS);
+        stringBuilder.append(CHANGES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    Deleted Shows
+//    Show IDs are listed here when they are completely deleted from Guidebox. Please note: since the show was deleted, calling it in the API via the /show call will return FALSE.
+//    {Base API URL} /updates/shows/deletes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetDeletedShows(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(SHOWS);
+        stringBuilder.append(DELETES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    Changed Episodes for a show
+//    Show IDs are listed here when they have changed episodes (i.e. when a episode is removed from or added to a streaming or download source or any episode metadata changes).
+//    {Base API URL} /updates/shows/changed_episodes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(SHOWS);
+        stringBuilder.append(CHANGED_EPISODES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    Episode Changes
+//    Episode IDs are listed here when any episode data changes (i.e. when a episode is removed from or added to a streaming or download source or any episode metadata changes). You can retrieve all episodes, or filter by a particular show.
+//    {Base API URL} /updates/episodes/changes/ {last process time} / {show ID (optional)} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(EPISODES);
+        stringBuilder.append(CHANGES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    New Episodes
+//    New episode IDs are listed here when they are added to Guidebox.
+//    {Base API URL} /updates/episodes/new/ {last process time} / {show ID (optional)} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(EPISODES);
+        stringBuilder.append(NEW);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    Deleted Episodes
+//    Episode IDs are listed here when they are completely deleted from Guidebox. Please note: since the episode was deleted, calling it in the API via the /episode call will return FALSE.
+//    {Base API URL} /updates/episodes/deletes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(EPISODES);
+        stringBuilder.append(DELETES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+
+//    Movie Changes
+//    Movie IDs are listed here when any movie data changes (i.e. when a movie is removed from or added to a streaming or download source or any metadata changes).
+//    {Base API URL} /updates/movies/changes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetChangedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(MOVIES);
+        stringBuilder.append(DELETES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
+
+//    Deleted Movies
+//    Movie IDs are listed here when they are completely deleted from Guidebox. Please note: since the movie was deleted, calling it in the API via the /movie call will return FALSE.
+//    {Base API URL} /updates/movies/deletes/ {last process time} ?limit= {limit (max 1000)} &page= {page #}
+    @Override
+    public String buildUrlToGetDeletedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber){
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        stringBuilder.append(apiKey.concat("/"));
+        stringBuilder.append(UPDATES);
+        stringBuilder.append(MOVIES);
+        stringBuilder.append(DELETES);
+        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(LIMIT.concat(limit));
+        stringBuilder.append(PAGE.concat(pageNumber));
+        return stringBuilder.toString();
+    }
 
     private String getCommaSeparatedStringFromList(List<String> list){
         StringBuilder strBuilder = new StringBuilder();

@@ -29,4 +29,20 @@ public interface URLBuilder {
     String buildUrlToGetMovieByTitle(String apiKey, String movieName);
 
     String buildUrlToGetGuideboxTimeStamp(String apiKey);
+
+    String buildUrlToGetChangedShows(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetDeletedShows(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetChangedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber);
+
+    String buildUrlToGetDeletedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber);
 }

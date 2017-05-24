@@ -32,4 +32,20 @@ public interface GuideBoxAPIAccessor {
     String getGuideBoxTimeStamp(String apiKey) throws IOException;
 
     String getMovieByTitle(String apiKey, String movieName) throws IOException;
+
+    String getChangedShows(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getDeletedShows(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getChangedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+
+    String getDeletedMovies(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
 }
