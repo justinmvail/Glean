@@ -227,13 +227,14 @@ public class URLBuilderImpl implements URLBuilder {
 //    Episode IDs are listed here when any episode data changes (i.e. when a episode is removed from or added to a streaming or download source or any episode metadata changes). You can retrieve all episodes, or filter by a particular show.
 //    {Base API URL} /updates/episodes/changes/ {last process time} / {show ID (optional)} ?limit= {limit (max 1000)} &page= {page #}
     @Override
-    public String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+    public String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber){
         StringBuilder stringBuilder = new StringBuilder(BASE_URL);
         stringBuilder.append(apiKey.concat("/"));
         stringBuilder.append(UPDATES);
         stringBuilder.append(EPISODES);
         stringBuilder.append(CHANGES);
-        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(lastProcessTime.concat("/"));
+        stringBuilder.append(showId);
         stringBuilder.append(LIMIT.concat(limit));
         stringBuilder.append(PAGE.concat(pageNumber));
         return stringBuilder.toString();
@@ -243,13 +244,14 @@ public class URLBuilderImpl implements URLBuilder {
 //    New episode IDs are listed here when they are added to Guidebox.
 //    {Base API URL} /updates/episodes/new/ {last process time} / {show ID (optional)} ?limit= {limit (max 1000)} &page= {page #}
     @Override
-    public String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber){
+    public String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber){
         StringBuilder stringBuilder = new StringBuilder(BASE_URL);
         stringBuilder.append(apiKey.concat("/"));
         stringBuilder.append(UPDATES);
         stringBuilder.append(EPISODES);
         stringBuilder.append(NEW);
-        stringBuilder.append(lastProcessTime);
+        stringBuilder.append(lastProcessTime.concat("/"));
+        stringBuilder.append(showId);
         stringBuilder.append(LIMIT.concat(limit));
         stringBuilder.append(PAGE.concat(pageNumber));
         return stringBuilder.toString();

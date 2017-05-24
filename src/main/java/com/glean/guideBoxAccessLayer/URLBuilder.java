@@ -36,9 +36,9 @@ public interface URLBuilder {
 
     String buildUrlToGetShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
 
-    String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+    String buildUrlToGetChangedEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber);
 
-    String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
+    String buildUrlToGetNewEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber);
 
     String buildUrlToGetDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber);
 

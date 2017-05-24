@@ -39,9 +39,9 @@ public interface GuideBoxAPIAccessor {
 
     String getShowWithChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
 
-    String getChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+    String getChangedEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber) throws IOException;
 
-    String getNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
+    String getNewEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber) throws IOException;
 
     String getDeletedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException;
 

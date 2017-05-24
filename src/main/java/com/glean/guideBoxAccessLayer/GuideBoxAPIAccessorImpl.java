@@ -115,14 +115,14 @@ public class GuideBoxAPIAccessorImpl implements GuideBoxAPIAccessor {
     }
 
     @Override
-    public String getChangedEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
-        String url = urlBuilder.buildUrlToGetChangedEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+    public String getChangedEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetChangedEpisodes(apiKey, lastProcessTime, showId, limit, pageNumber);
         return urlCaller.makeCall(url);
     }
 
     @Override
-    public String getNewEpisodes(String apiKey, String lastProcessTime, String limit, String pageNumber) throws IOException{
-        String url = urlBuilder.buildUrlToGetNewEpisodes(apiKey, lastProcessTime, limit, pageNumber);
+    public String getNewEpisodes(String apiKey, String lastProcessTime, String showId, String limit, String pageNumber) throws IOException{
+        String url = urlBuilder.buildUrlToGetNewEpisodes(apiKey, lastProcessTime, showId, limit, pageNumber);
         return urlCaller.makeCall(url);
     }
 
