@@ -147,14 +147,14 @@ public class GuideBoxAPIAccessorImplTest {
     @Test
     public void getChangedEpisodes() throws Exception {
         System.out.println("Getting changed episodes from GuideBox: ");
-        String jsonResult = accessor.getChangedEpisodes(apiKey, unixTimeStamp, "10", "1");
+        String jsonResult = accessor.getChangedEpisodes(apiKey, unixTimeStamp,"613", "10", "1");
         System.out.println(jsonResult);
     }
 
     @Test
     public void getNewEpisodes() throws Exception {
         System.out.println("Getting new episodes for a show from GuideBox: ");
-        String jsonResult = accessor.getNewEpisodes(apiKey, unixTimeStamp, "10", "1");
+        String jsonResult = accessor.getNewEpisodes(apiKey, unixTimeStamp, "613", "10", "1");
         System.out.println(jsonResult);
     }
 
